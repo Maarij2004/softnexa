@@ -162,25 +162,6 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="info-item">
-                <div className="info-icon">
-                  <i className="fas fa-phone"></i>
-                </div>
-                <div className="info-text">
-                  <h3>Phone</h3>
-                  <p>+1 (555) 123-4567</p>
-                </div>
-              </div>
-
-              <div className="info-item">
-                <div className="info-icon">
-                  <i className="fas fa-map-marker-alt"></i>
-                </div>
-                <div className="info-text">
-                  <h3>Address</h3>
-                  <p>123 Business St, City, State 12345</p>
-                </div>
-              </div>
 
               <div className="social-links">
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">

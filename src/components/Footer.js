@@ -67,15 +67,7 @@ const Footer = () => {
             <ul className="footer-links">
               <li>
                 <i className="fas fa-envelope"></i>
-                <span>info@softnexa.com</span>
-              </li>
-              <li>
-                <i className="fas fa-phone"></i>
-                <span>+1 (555) 123-4567</span>
-              </li>
-              <li>
-                <i className="fas fa-map-marker-alt"></i>
-                <span>123 Business St, City, State 12345</span>
+                <span>softnexatech@gmail.com</span>
               </li>
             </ul>
           </div>

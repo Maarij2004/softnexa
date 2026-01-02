@@ -1,16 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-// Suppress React Router v7 deprecation warnings (v6 is still fully supported)
-if (process.env.NODE_ENV === 'development') {
-  const originalWarn = console.warn;
-  console.warn = (...args) => {
-    if (args[0]?.includes?.('reactrouter.com/v6/upgrading/future')) {
-      return; // Suppress React Router v7 deprecation warnings
-    }
-    originalWarn.apply(console, args);
-  };
-}
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -34,6 +24,16 @@ import Retail from './pages/sectors/Retail';
 import Technology from './pages/sectors/Technology';
 import './App.css';
 
+// Suppress React Router v7 deprecation warnings (v6 is still fully supported)
+if (process.env.NODE_ENV === 'development') {
+  const originalWarn = console.warn;
+  console.warn = (...args) => {
+    if (args[0]?.includes?.('reactrouter.com/v6/upgrading/future')) {
+      return; // Suppress React Router v7 deprecation warnings
+    }
+    originalWarn.apply(console, args);
+  };
+}
 function App() {
   return (
     <Router>
