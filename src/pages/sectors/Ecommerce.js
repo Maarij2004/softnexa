@@ -77,6 +77,14 @@ const Ecommerce = () => {
         { number: '5x', label: 'Customer Base' },
         { number: '30%', label: 'Conversion Rate' }
       ]
+    },
+    project: {
+      title: 'Royal Shine Jewels - Premium Shopify Store',
+      description: 'A luxury e-commerce jewelry store built on Shopify with elegant design and seamless shopping experience. Features product customization, secure checkout, mobile-optimized browsing, advanced inventory management, and integrated payment gateways for a premium shopping experience.',
+      image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80',
+      tags: ['E-commerce', 'Shopify', 'Jewelry', 'Retail'],
+      demo: 'https://royalshinejewels.com/',
+      details: 'https://royalshinejewels.com/'
     }
   };
 

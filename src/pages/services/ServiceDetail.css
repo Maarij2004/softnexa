@@ -283,13 +283,69 @@
 }
 
 @media (max-width: 576px) {
+    .service-hero {
+        padding-top: 100px;
+        padding-bottom: 50px;
+    }
+    
     .service-hero h1 {
         font-size: 2rem;
+    }
+    
+    .service-hero p {
+        font-size: 1rem;
+    }
+    
+    .service-detail {
+        padding: 50px 0;
+    }
+    
+    .service-main h2 {
+        font-size: 1.8rem;
+    }
+    
+    .service-main h3 {
+        font-size: 1.3rem;
+    }
+    
+    .service-main h4 {
+        font-size: 1.1rem;
+    }
+    
+    .service-main p {
+        font-size: 0.95rem;
+    }
+    
+    .service-feature {
+        padding: 20px;
+    }
+    
+    .service-feature i {
+        font-size: 1.8rem;
     }
     
     .process-step {
         flex-direction: column;
         gap: 15px;
+    }
+    
+    .step-number {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+    
+    .service-cta {
+        padding: 25px;
+    }
+    
+    .service-cta h3 {
+        font-size: 1.5rem;
+    }
+    
+    .tech-tag {
+        font-size: 0.85rem;
+        padding: 6px 12px;
     }
 }
 

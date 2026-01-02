@@ -52,7 +52,6 @@ const Footer = () => {
           <div className="footer-column">
             <h3>Industries</h3>
             <ul className="footer-links">
-              <li><Link to="/sectors/healthcare">Healthcare</Link></li>
               <li><Link to="/sectors/finance">Finance</Link></li>
               <li><Link to="/sectors/ecommerce">E-commerce</Link></li>
               <li><Link to="/sectors/education">Education</Link></li>

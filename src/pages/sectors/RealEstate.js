@@ -77,6 +77,14 @@ const RealEstate = () => {
         { number: '3x', label: 'Lead Generation' },
         { number: '95%', label: 'Client Satisfaction' }
       ]
+    },
+    project: {
+      title: 'AI 3D Architecture Visualization Platform',
+      description: 'A cutting-edge 3D architecture visualization platform powered by AI. Create stunning architectural designs, 3D models, and immersive virtual tours with real-time rendering, collaborative design tools, and photorealistic visualization for real estate and architectural projects.',
+      image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80',
+      tags: ['Real Estate', 'AI', '3D', 'Architecture'],
+      demo: 'https://main.d3awubmtb8cr63.amplifyapp.com/',
+      details: 'https://main.d3awubmtb8cr63.amplifyapp.com/'
     }
   };
 

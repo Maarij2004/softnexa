@@ -113,12 +113,38 @@
 }
 
 @media (max-width: 576px) {
+    .hero {
+        padding-top: 100px;
+        padding-bottom: 60px;
+    }
+    
     .hero-text h1 {
         font-size: 2rem;
+        margin-bottom: 15px;
     }
     
     .hero-text p {
         font-size: 1rem;
+        margin-bottom: 25px;
+    }
+    
+    .hero-btns {
+        gap: 10px;
+    }
+    
+    .hero-btns .btn {
+        max-width: 100%;
+        padding: 12px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-text p {
+        font-size: 0.95rem;
     }
 }
 

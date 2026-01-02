@@ -77,6 +77,14 @@ const Technology = () => {
         { number: '99.9%', label: 'Uptime' },
         { number: '$5M', label: 'Series A Funding' }
       ]
+    },
+    project: {
+      title: 'Softnexa - Digital Transformation Platform',
+      description: 'A comprehensive digital transformation platform showcasing services in web development, mobile apps, AI automation, and digital marketing. Features modern design, fully responsive layout, integrated project portfolio, and seamless user experience across all devices.',
+      image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80',
+      tags: ['Technology', 'SaaS', 'Web Development', 'React'],
+      demo: 'https://softnexa.vercel.app/',
+      details: 'https://softnexa.vercel.app/'
     }
   };
 

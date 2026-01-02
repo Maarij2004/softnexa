@@ -14,7 +14,6 @@ import MobileApp from './pages/services/MobileApp';
 import AIAutomation from './pages/services/AIAutomation';
 import SEO from './pages/services/SEO';
 import Shopify from './pages/services/Shopify';
-import Healthcare from './pages/sectors/Healthcare';
 import Finance from './pages/sectors/Finance';
 import Ecommerce from './pages/sectors/Ecommerce';
 import Education from './pages/sectors/Education';
@@ -42,7 +41,6 @@ function App() {
           <Route path="/services/ai-automation" element={<AIAutomation />} />
           <Route path="/services/seo" element={<SEO />} />
           <Route path="/services/shopify" element={<Shopify />} />
-          <Route path="/sectors/healthcare" element={<Healthcare />} />
           <Route path="/sectors/finance" element={<Finance />} />
           <Route path="/sectors/ecommerce" element={<Ecommerce />} />
           <Route path="/sectors/education" element={<Education />} />

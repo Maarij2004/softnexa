@@ -39,9 +39,12 @@ header.scrolled {
     color: var(--primary-purple);
 }
 
-.logo i {
-    margin-right: 10px;
-    font-size: 2rem;
+.logo-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 4px;
+    object-fit: contain;
+    flex-shrink: 0;
 }
 
 nav ul {
@@ -52,6 +55,7 @@ nav ul {
 nav ul li {
     margin-left: 30px;
     position: relative;
+    margin-top: 10px;
 }
 
 nav ul li a {
@@ -104,7 +108,7 @@ nav ul li.dropdown.open > a i.fa-chevron-down {
     border-radius: var(--border-radius);
     min-width: 250px;
     padding: 10px 0;
-    margin-top: 5px;
+    margin-top: 0;
     list-style: none;
     z-index: 1001;
     opacity: 0;
@@ -174,6 +178,38 @@ nav ul li.dropdown.open > a i.fa-chevron-down {
     min-width: 220px;
 }
 
+/* Contact Button Styles */
+nav ul li .contact-btn {
+    background: var(--gradient-blue-purple);
+    color: var(--white) !important;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+    margin-top: -10px;
+}
+
+nav ul li .contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    color: var(--white) !important;
+}
+
+nav ul li .contact-btn.active {
+    background: var(--gradient-blue-purple);
+    color: var(--white) !important;
+}
+
+nav ul li .contact-btn.active::after {
+    display: none;
+}
+
+nav ul li .contact-btn i {
+    margin-right: 6px;
+    font-size: 0.9rem;
+}
+
 .mobile-menu-btn {
     display: none;
     font-size: 1.5rem;
@@ -184,9 +220,21 @@ nav ul li.dropdown.open > a i.fa-chevron-down {
     padding: 5px;
 }
 
+@media (max-width: 992px) {
+    .logo-img {
+        width: 36px;
+        height: 36px;
+    }
+}
+
 @media (max-width: 768px) {
     .mobile-menu-btn {
         display: block;
+    }
+    
+    .logo-img {
+        width: 34px;
+        height: 34px;
     }
     
     nav {
@@ -220,6 +268,14 @@ nav ul li.dropdown.open > a i.fa-chevron-down {
         margin-bottom: 0;
     }
     
+    nav ul li .contact-btn {
+        margin-left: 0;
+        display: inline-flex;
+        justify-content: center;
+        width: 100%;
+        max-width: 200px;
+    }
+    
     .dropdown-menu {
         position: static;
         box-shadow: none;
@@ -246,7 +302,59 @@ nav ul li.dropdown.open > a i.fa-chevron-down {
 }
 
 @media (max-width: 576px) {
+    .header-container {
+        padding: 15px 0;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    .logo-img {
+        width: 32px;
+        height: 32px;
+        margin-right: 4px;
+    }
+    
+    nav ul {
+        padding: 15px;
+    }
+    
+    nav ul li {
+        margin-bottom: 12px;
+    }
+    
+    nav ul li a {
+        font-size: 0.95rem;
+    }
+    
+    nav ul li .contact-btn {
+        padding: 10px 18px;
+        font-size: 0.95rem;
+    }
+    
     .dropdown-menu {
         margin-left: 15px;
+    }
+    
+    .dropdown-menu li a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .mobile-menu-btn {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.3rem;
+    }
+    
+    .logo-img {
+        width: 28px;
+        height: 28px;
+        /* margin-right: 4px; */
     }
 }

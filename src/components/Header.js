@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
 
@@ -8,13 +8,23 @@ const Header = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isSectorsOpen, setIsSectorsOpen] = useState(false);
   const location = useLocation();
+  const servicesTimeoutRef = useRef(null);
+  const sectorsTimeoutRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (servicesTimeoutRef.current) {
+        clearTimeout(servicesTimeoutRef.current);
+      }
+      if (sectorsTimeoutRef.current) {
+        clearTimeout(sectorsTimeoutRef.current);
+      }
+    };
   }, []);
 
   const toggleMenu = () => {
@@ -46,7 +56,6 @@ const Header = () => {
   ];
 
   const allSectors = [
-    { name: 'Healthcare', path: '/sectors/healthcare', icon: 'fas fa-heartbeat' },
     { name: 'Finance', path: '/sectors/finance', icon: 'fas fa-chart-line' },
     { name: 'E-commerce', path: '/sectors/ecommerce', icon: 'fas fa-shopping-bag' },
     { name: 'Education', path: '/sectors/education', icon: 'fas fa-graduation-cap' },
@@ -60,7 +69,7 @@ const Header = () => {
     <header className={isScrolled ? 'scrolled' : ''}>
       <div className="container header-container">
         <Link to="/" className="logo" onClick={closeMenu}>
-          <i className="fas fa-code"></i>
+          <img src="/svg.png" alt="Softnexa Logo" className="logo-img" />
           Soft<span>nexa</span>
         </Link>
         
@@ -83,12 +92,18 @@ const Header = () => {
               className={`dropdown ${isServicesOpen ? 'open' : ''}`}
               onMouseEnter={() => {
                 if (window.innerWidth > 768) {
+                  if (servicesTimeoutRef.current) {
+                    clearTimeout(servicesTimeoutRef.current);
+                    servicesTimeoutRef.current = null;
+                  }
                   setIsServicesOpen(true);
                 }
               }}
               onMouseLeave={() => {
                 if (window.innerWidth > 768) {
-                  setIsServicesOpen(false);
+                  servicesTimeoutRef.current = setTimeout(() => {
+                    setIsServicesOpen(false);
+                  }, 150);
                 }
               }}
             >
@@ -108,12 +123,18 @@ const Header = () => {
                 className="dropdown-menu"
                 onMouseEnter={() => {
                   if (window.innerWidth > 768) {
+                    if (servicesTimeoutRef.current) {
+                      clearTimeout(servicesTimeoutRef.current);
+                      servicesTimeoutRef.current = null;
+                    }
                     setIsServicesOpen(true);
                   }
                 }}
                 onMouseLeave={() => {
                   if (window.innerWidth > 768) {
-                    setIsServicesOpen(false);
+                    servicesTimeoutRef.current = setTimeout(() => {
+                      setIsServicesOpen(false);
+                    }, 150);
                   }
                 }}
               >
@@ -138,12 +159,18 @@ const Header = () => {
               className={`dropdown ${isSectorsOpen ? 'open' : ''}`}
               onMouseEnter={() => {
                 if (window.innerWidth > 768) {
+                  if (sectorsTimeoutRef.current) {
+                    clearTimeout(sectorsTimeoutRef.current);
+                    sectorsTimeoutRef.current = null;
+                  }
                   setIsSectorsOpen(true);
                 }
               }}
               onMouseLeave={() => {
                 if (window.innerWidth > 768) {
-                  setIsSectorsOpen(false);
+                  sectorsTimeoutRef.current = setTimeout(() => {
+                    setIsSectorsOpen(false);
+                  }, 150);
                 }
               }}
             >
@@ -163,12 +190,18 @@ const Header = () => {
                 className="dropdown-menu sectors-dropdown"
                 onMouseEnter={() => {
                   if (window.innerWidth > 768) {
+                    if (sectorsTimeoutRef.current) {
+                      clearTimeout(sectorsTimeoutRef.current);
+                      sectorsTimeoutRef.current = null;
+                    }
                     setIsSectorsOpen(true);
                   }
                 }}
                 onMouseLeave={() => {
                   if (window.innerWidth > 768) {
-                    setIsSectorsOpen(false);
+                    sectorsTimeoutRef.current = setTimeout(() => {
+                      setIsSectorsOpen(false);
+                    }, 150);
                   }
                 }}
               >
@@ -203,9 +236,10 @@ const Header = () => {
             <li>
               <Link 
                 to="/contact" 
-                className={isActive('/contact') ? 'active' : ''}
+                className={`contact-btn ${isActive('/contact') ? 'active' : ''}`}
                 onClick={closeMenu}
               >
+                <i className="fas fa-envelope"></i>
                 Contact
               </Link>
             </li>

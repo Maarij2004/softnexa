@@ -77,6 +77,14 @@ const Education = () => {
         { number: '90%', label: 'Student Satisfaction' },
         { number: '40%', label: 'Cost Reduction' }
       ]
+    },
+    project: {
+      title: 'Code Tutor - Interactive Learning Platform',
+      description: 'An innovative coding education platform with real-time code execution, personalized learning paths, and comprehensive course management. Features live coding sessions, progress tracking, AI-powered code review, and interactive tutorials for students of all skill levels.',
+      image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80',
+      tags: ['Education', 'Learning', 'React', 'Web App'],
+      demo: 'https://code-tutorfrontend.vercel.app/',
+      details: 'https://code-tutorfrontend.vercel.app/'
     }
   };
 

@@ -1,0 +1,173 @@
+.automation {
+    background: var(--gradient-light);
+    padding: 80px 0;
+}
+
+.automation-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.automation-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius-lg);
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.automation-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.automation-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--gradient-blue-purple);
+    color: var(--white);
+    font-size: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.automation-card:hover .automation-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.automation-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-blue);
+}
+
+.automation-card p {
+    color: var(--dark-gray);
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+.automation-cta {
+    background: var(--white);
+    border-radius: var(--border-radius-lg);
+    padding: 60px 40px;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    margin-top: 50px;
+}
+
+.automation-cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background: var(--gradient-blue-purple);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.automation-cta-content p {
+    font-size: 1.1rem;
+    color: var(--dark-gray);
+    margin-bottom: 35px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.automation-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.automation-buttons .btn {
+    padding: 15px 35px;
+    font-size: 1.05rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.automation-buttons .btn i {
+    font-size: 1rem;
+}
+
+@media (max-width: 992px) {
+    .automation-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .automation-cta {
+        padding: 50px 30px;
+    }
+    
+    .automation-cta-content h2 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .automation {
+        padding: 60px 0;
+    }
+    
+    .automation-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .automation-card {
+        padding: 30px 25px;
+    }
+    
+    .automation-cta {
+        padding: 40px 25px;
+    }
+    
+    .automation-cta-content h2 {
+        font-size: 2rem;
+    }
+    
+    .automation-cta-content p {
+        font-size: 1rem;
+    }
+    
+    .automation-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .automation-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .automation-cta-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .automation-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 1.8rem;
+    }
+    
+    .automation-card h3 {
+        font-size: 1.3rem;
+    }
+}
+

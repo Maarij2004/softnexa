@@ -11,12 +11,12 @@ const SectorTemplate = ({
   services,
   solutions,
   benefits,
-  caseStudy
+  caseStudy,
+  project
 }) => {
   const location = useLocation();
   
   const allSectors = [
-    { name: 'Healthcare', path: '/sectors/healthcare' },
     { name: 'Finance', path: '/sectors/finance' },
     { name: 'E-commerce', path: '/sectors/ecommerce' },
     { name: 'Education', path: '/sectors/education' },
@@ -117,6 +117,36 @@ const SectorTemplate = ({
                         ))}
                       </div>
                     )}
+                  </div>
+                </div>
+              )}
+
+              {project && (
+                <div className="sector-project">
+                  <h3>Featured Project</h3>
+                  <div className="project-showcase">
+                    <div className="project-showcase-image">
+                      <img src={project.image} alt={project.title} />
+                      <div className="project-showcase-overlay">
+                        <a href={project.demo} title="Live Demo" target="_blank" rel="noopener noreferrer" className="project-link-btn">
+                          <i className="fas fa-external-link-alt"></i> View Live Demo
+                        </a>
+                      </div>
+                    </div>
+                    <div className="project-showcase-content">
+                      <h4>{project.title}</h4>
+                      <p>{project.description}</p>
+                      <div className="project-showcase-tags">
+                        {project.tags && project.tags.map((tag, index) => (
+                          <span key={index} className="project-tag">{tag}</span>
+                        ))}
+                      </div>
+                      <div className="project-showcase-links">
+                        <a href={project.demo} target="_blank" rel="noopener noreferrer" className="btn-primary">
+                          <i className="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               )}

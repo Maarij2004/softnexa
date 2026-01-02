@@ -30,17 +30,14 @@
 }
 
 .about-stats {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     margin-top: 40px;
-    flex-wrap: wrap;
-    gap: 20px;
+    gap: 30px;
 }
 
 .stat {
     text-align: center;
-    flex: 1;
-    min-width: 120px;
 }
 
 .stat-number {
@@ -76,6 +73,7 @@
 @media (max-width: 992px) {
     .about-content {
         flex-direction: column;
+        gap: 40px;
     }
     
     .about-text h2 {
@@ -88,26 +86,53 @@
 }
 
 @media (max-width: 768px) {
+    .about-content {
+        gap: 30px;
+    }
+    
     .about-text h2 {
         font-size: 2rem;
     }
     
-    .about-stats {
-        gap: 30px;
+    .about-text p {
+        font-size: 1rem;
     }
     
-    .stat {
-        flex: 0 0 calc(50% - 15px);
+    .about-stats {
+        gap: 25px;
+    }
+    
+    .stat-number {
+        font-size: 2.2rem;
     }
 }
 
 @media (max-width: 576px) {
-    .stat {
-        flex: 0 0 100%;
+    .about-text h2 {
+        font-size: 1.8rem;
+    }
+    
+    .about-text p {
+        font-size: 0.95rem;
+    }
+    
+    .about-stats {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    .about-stats {
+        grid-template-columns: 1fr;
+        gap: 25px;
     }
     
     .stat-number {
         font-size: 2rem;
+    }
+    
+    .stat-text {
+        font-size: 0.85rem;
     }
 }
 

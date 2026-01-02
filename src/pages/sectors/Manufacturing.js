@@ -77,6 +77,14 @@ const Manufacturing = () => {
         { number: '30%', label: 'Downtime Reduction' },
         { number: '20%', label: 'Cost Savings' }
       ]
+    },
+    project: {
+      title: 'Smart Factory Automation System',
+      description: 'AI-powered manufacturing automation system with IoT integration, real-time monitoring, and predictive maintenance. Features production scheduling, quality control dashboards, and supply chain optimization for Industry 4.0 operations.',
+      image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80',
+      tags: ['Manufacturing', 'IoT', 'AI', 'Automation'],
+      demo: 'https://smart-factory-demo.herokuapp.com',
+      details: 'https://github.com/example/smart-factory'
     }
   };
 

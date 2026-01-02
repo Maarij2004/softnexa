@@ -77,6 +77,14 @@ const Retail = () => {
         { number: '60%', label: 'Customer Retention' },
         { number: '25%', label: 'Cost Reduction' }
       ]
+    },
+    project: {
+      title: 'SideChef - Recipe & Meal Planning Platform',
+      description: 'A comprehensive recipe platform with meal planning, grocery shopping integration, and step-by-step cooking instructions. Features personalized meal plans, ingredient management, seamless Walmart integration for one-click ordering, and smart appliance connectivity for enhanced cooking experience.',
+      image: 'https://images.unsplash.com/photo-1495521821757-a1efb6729352?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80',
+      tags: ['Retail', 'Food', 'Recipes', 'E-commerce'],
+      demo: 'https://www.sidechef.com/',
+      details: 'https://www.sidechef.com/'
     }
   };
 

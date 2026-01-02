@@ -77,6 +77,14 @@ const Finance = () => {
         { number: '50%', label: 'Transaction Volume' },
         { number: '95%', label: 'User Satisfaction' }
       ]
+    },
+    project: {
+      title: 'TokenX - Cryptocurrency Trading Platform',
+      description: 'A cutting-edge cryptocurrency trading platform with advanced trading tools, real-time market data, secure wallet integration, and comprehensive portfolio management. Features multi-exchange support, advanced charting, and institutional-grade security for digital asset trading.',
+      image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80',
+      tags: ['Finance', 'Cryptocurrency', 'Trading', 'Blockchain'],
+      demo: 'https://tokenx.trade/',
+      details: 'https://tokenx.trade/'
     }
   };
 

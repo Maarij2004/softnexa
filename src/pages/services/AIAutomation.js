@@ -8,43 +8,57 @@ const AIAutomation = () => {
     overview: 'Leverage the power of artificial intelligence and automation to streamline operations, reduce costs, and enhance decision-making. Our AI solutions are designed to integrate seamlessly with your existing systems and provide actionable insights that drive business growth.',
     features: [
       {
-        icon: 'fas fa-brain',
-        title: 'Machine Learning',
-        description: 'Custom ML models trained on your data to predict trends, detect patterns, and automate decision-making.'
+        icon: 'fas fa-comments',
+        title: 'AI Chatbots',
+        description: 'Intelligent conversational AI chatbots that handle customer inquiries 24/7, provide instant support, answer questions, process orders, and improve customer satisfaction with natural language processing and machine learning capabilities.'
       },
       {
-        icon: 'fas fa-comments',
-        title: 'Chatbots & Virtual Assistants',
-        description: 'Intelligent chatbots that handle customer inquiries, provide support, and improve user engagement 24/7.'
+        icon: 'fas fa-microphone',
+        title: 'AI Voice Agents',
+        description: 'Advanced voice-enabled AI assistants that can handle phone calls, provide voice-based customer service, automate voice interactions with human-like responses, support multiple languages, and integrate with your existing phone systems.'
+      },
+      {
+        icon: 'fas fa-brain',
+        title: 'Machine Learning',
+        description: 'Custom ML models trained on your data to predict trends, detect patterns, automate decision-making, and continuously learn from interactions to improve performance over time.'
+      },
+      {
+        icon: 'fas fa-robot',
+        title: 'Process Automation',
+        description: 'Intelligent automation that streamlines repetitive tasks and workflows, reduces manual work, increases efficiency, minimizes errors, and frees up your team for strategic work.'
       },
       {
         icon: 'fas fa-chart-line',
         title: 'Predictive Analytics',
-        description: 'Advanced analytics that forecast trends, identify opportunities, and support data-driven decisions.'
+        description: 'Advanced AI-powered analytics that forecast trends, identify opportunities, predict customer behavior, and support data-driven business decisions with actionable insights.'
       },
       {
-        icon: 'fas fa-cogs',
-        title: 'Process Automation',
-        description: 'Automate repetitive tasks and workflows to increase efficiency and reduce manual errors.'
+        icon: 'fas fa-sync-alt',
+        title: 'Integration Solutions',
+        description: 'Seamlessly connect your existing systems, CRM, ERP, and third-party applications with AI-powered automation tools for unified operations and enhanced productivity.'
       },
       {
         icon: 'fas fa-image',
         title: 'Computer Vision',
-        description: 'Image and video analysis solutions for quality control, security, and content moderation.'
+        description: 'Image and video analysis solutions for quality control, security monitoring, content moderation, and automated visual inspection using advanced AI algorithms.'
       },
       {
         icon: 'fas fa-language',
         title: 'Natural Language Processing',
-        description: 'NLP solutions for sentiment analysis, text classification, and automated content generation.'
+        description: 'NLP solutions for sentiment analysis, text classification, automated content generation, document processing, and multilingual support across various languages.'
       }
     ],
     benefits: [
-      'Increased operational efficiency',
-      'Reduced operational costs',
-      'Improved accuracy and consistency',
-      'Enhanced customer experience',
-      'Data-driven insights',
-      'Scalable solutions'
+      '24/7 customer support with AI chatbots and voice agents',
+      'Increased operational efficiency through intelligent automation',
+      'Reduced operational costs by up to 60%',
+      'Improved accuracy and consistency in all processes',
+      'Enhanced customer experience with instant responses',
+      'Data-driven insights and predictive analytics',
+      'Scalable solutions that grow with your business',
+      'Multi-language support for global reach',
+      'Seamless integration with existing systems',
+      'Enterprise-grade security and compliance'
     ],
     process: [
       {
