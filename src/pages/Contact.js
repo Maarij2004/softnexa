@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import './Contact.css';
 
 const Contact = () => {
@@ -10,6 +11,15 @@ const Contact = () => {
     message: ''
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
+
+  // EmailJS Configuration
+  const SERVICE_ID = 'service_ua43k89';
+  const TEMPLATE_ID = 'template_udm8cwv'; // Template for sending form data to softnexatech@gmail.com
+  const CONFIRMATION_TEMPLATE_ID = 'template_nt9rx08'; // Template for sending confirmation to user
+  const PUBLIC_KEY = '9hdcFKg4qoOFMEj0V';
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -17,18 +27,113 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! We will get back to you soon.');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      service: '',
-      message: ''
-    });
+    setIsSubmitting(true);
+    setSubmitStatus({ type: '', message: '' });
+
+    // EmailJS template parameters for business email (softnexatech@gmail.com)
+    const businessEmailParams = {
+      to_email: 'softnexatech@gmail.com', // Your business email - receives form submission
+      from_name: formData.name, // User's name
+      from_email: formData.email, // User's email
+      reply_to: formData.email, // Allows replying directly to the sender
+      phone: formData.phone || 'Not provided',
+      service: formData.service || 'Not specified',
+      message: formData.message,
+      user_name: formData.name,
+      user_email: formData.email
+    };
+
+    // EmailJS template parameters for user confirmation email
+    const userConfirmationParams = {
+      to_email: formData.email, // User's email - receives confirmation
+      to_name: formData.name,
+      from_name: 'Softnexa Team', // Matches your template "From Name"
+      from_email: 'softnexatech@gmail.com', // Your business email
+      reply_to: 'softnexatech@gmail.com', // Matches your template "Reply To"
+      user_name: formData.name,
+      service_inquiry: formData.service || 'General Inquiry',
+      confirmation_message: `Dear ${formData.name},\n\nThank you for contacting Softnexa! We have received your message and will get back to you soon.\n\nYour inquiry regarding "${formData.service || 'General Inquiry'}" has been noted.\n\nWe appreciate your interest in our services and will respond within 24-48 hours.\n\nBest regards,\nSoftnexa Team\n\n---\nSoftnexa - Digital Transformation Solutions\nEmail: softnexatech@gmail.com`
+    };
+
+    try {
+      // Step 1: Send form submission to your business email (softnexatech@gmail.com)
+      const businessResponse = await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        businessEmailParams,
+        PUBLIC_KEY
+      );
+
+      console.log('Form submission sent to softnexatech@gmail.com:', businessResponse);
+
+      // Step 2: Send confirmation email to the user
+      const confirmationResponse = await emailjs.send(
+        SERVICE_ID,
+        CONFIRMATION_TEMPLATE_ID, // Confirmation template for user
+        userConfirmationParams,
+        PUBLIC_KEY
+      );
+
+      console.log('Confirmation email sent to user:', confirmationResponse);
+
+      setSubmitStatus({
+        type: 'success',
+        message: `Thank you, ${formData.name}! We have received your message and will get back to you soon. A confirmation email has been sent to ${formData.email}.`
+      });
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        service: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('EmailJS Error Details:', {
+        text: error.text,
+        status: error.status,
+        message: error.message,
+        error: error
+      });
+      
+      let errorMessage = 'Sorry, there was an error sending your message. ';
+      
+      // Handle different types of errors
+      if (error.message && (error.message.includes('Failed to fetch') || error.message.includes('ERR_CONNECTION_RESET'))) {
+        errorMessage += 'Network connection issue detected. This could be due to: ';
+        errorMessage += '1) Firewall/antivirus blocking the request, ';
+        errorMessage += '2) Network connectivity issues, or ';
+        errorMessage += '3) EmailJS service temporarily unavailable. ';
+        errorMessage += 'Please try: refreshing the page, checking your internet connection, or temporarily disabling firewall/antivirus. ';
+      } else if (error.text) {
+        if (error.text.includes('Invalid template ID') || error.text.includes('template')) {
+          errorMessage += 'Please verify the template is set up correctly in EmailJS. ';
+        } else if (error.text.includes('Invalid service ID')) {
+          errorMessage += 'Please verify the service is connected in EmailJS. ';
+        } else if (error.text.includes('Invalid public key')) {
+          errorMessage += 'Please verify the public key is correct. ';
+        } else if (error.text.includes('recipients address is empty')) {
+          errorMessage += 'Please configure the recipient email in your EmailJS template settings. ';
+        } else {
+          errorMessage += error.text + ' ';
+        }
+      } else if (error.status) {
+        errorMessage += `Error code: ${error.status}. `;
+      }
+      
+      errorMessage += 'You can also contact us directly at softnexatech@gmail.com';
+      
+      setSubmitStatus({
+        type: 'error',
+        message: errorMessage,
+        showMailto: true // Show mailto link as fallback
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -53,7 +158,7 @@ const Contact = () => {
                 </div>
                 <div className="info-text">
                   <h3>Email</h3>
-                  <p>info@softnexa.com</p>
+                  <p>softnexatech@gmail.com</p>
                 </div>
               </div>
 
@@ -94,6 +199,20 @@ const Contact = () => {
             </div>
 
             <div className="contact-form-wrapper">
+              {submitStatus.message && (
+                <div className={`submit-message ${submitStatus.type}`}>
+                  <i className={`fas ${submitStatus.type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}`}></i>
+                  <p>{submitStatus.message}</p>
+                  {submitStatus.showMailto && (
+                    <a 
+                      href={`mailto:softnexatech@gmail.com?subject=Contact Form Submission&body=Name: ${encodeURIComponent(formData.name)}%0AEmail: ${encodeURIComponent(formData.email)}%0APhone: ${encodeURIComponent(formData.phone || 'Not provided')}%0AService: ${encodeURIComponent(formData.service || 'Not specified')}%0A%0AMessage:%0A${encodeURIComponent(formData.message)}`}
+                      className="mailto-fallback-btn"
+                    >
+                      <i className="fas fa-envelope"></i> Send via Email Client
+                    </a>
+                  )}
+                </div>
+              )}
               <form className="contact-form" onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label htmlFor="name">Full Name *</label>
@@ -160,7 +279,19 @@ const Contact = () => {
                   ></textarea>
                 </div>
 
-                <button type="submit" className="btn btn-primary">Send Message</button>
+                <button 
+                  type="submit" 
+                  className="btn btn-primary" 
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <i className="fas fa-spinner fa-spin"></i> Sending...
+                    </>
+                  ) : (
+                    'Send Message'
+                  )}
+                </button>
               </form>
             </div>
           </div>
