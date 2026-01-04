@@ -1,5 +1,6 @@
 import React from 'react';
 import About from '../components/About';
+import FAQ from '../components/FAQ';
 import CTA from '../components/CTA';
 
 const AboutPage = () => {
@@ -12,6 +13,7 @@ const AboutPage = () => {
         </div>
       </section>
       <About showTitle={false} />
+      <FAQ showTitle={true} />
       <CTA />
     </main>
   );

@@ -101,7 +101,7 @@ nav ul li.dropdown.open > a i.fa-chevron-down {
 /* Dropdown Menu Styles */
 .dropdown-menu {
     position: absolute;
-    top: calc(100% + 5px);
+    top: 100%;
     left: 0;
     background-color: var(--white);
     box-shadow: var(--shadow-lg);
@@ -279,13 +279,15 @@ nav ul li .contact-btn i {
     .dropdown-menu {
         position: static;
         box-shadow: none;
-        margin-top: 10px;
+        margin-top: 0;
         margin-left: 20px;
-        background-color: var(--light-gray);
+        margin-bottom: 0;
+        background-color: transparent;
         border-radius: var(--border-radius);
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease;
+        padding: 0;
+        transition: max-height 0.3s ease, margin-top 0.3s ease, padding 0.3s ease;
         opacity: 1;
         visibility: visible;
         pointer-events: all;
@@ -294,6 +296,8 @@ nav ul li .contact-btn i {
     .dropdown.open .dropdown-menu {
         max-height: 600px;
         overflow-y: auto;
+        margin-top: 10px;
+        padding: 0;
     }
     
     .dropdown-menu li a {
